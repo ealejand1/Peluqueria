@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { ReservaComponent } from '../funcionalidades/reserva/reserva.component';
 
 @Component({
   selector: 'app-cuerpo',
   standalone: true,
-  imports: [],
+  imports: [ReservaComponent],
   templateUrl: './cuerpo.component.html',
   styleUrl: './cuerpo.component.css'
 })

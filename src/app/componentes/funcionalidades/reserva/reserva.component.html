@@ -1,1 +1,28 @@
-<p>reserva works!</p>
+<form [formGroup]="registroForm" method="post">
+    <div class="formulario">
+        <h2>Registro Usuario</h2>
+
+        <!-- <div *ngIf="registroForm.controls['nombre'].invalid && registroForm.controls['nombre'].touched">
+            <p>El nombre debe de tener minimo 3 caracteres !!!!</p>
+        </div> -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" formControlName="nombre" required>
+
+
+        <label for="ape">Apellido:</label>
+        <input type="text" id="ape" formControlName="ape" required>
+
+        <label for="correo">Correo Electronico:</label>
+        <input type="email" id="correo" formControlName="correo" required>
+
+        <label for="passwd">Contraseña:</label>
+        <input type="password" id="passwd" formControlName="passwd" required>
+
+        <label for="telefono">Telefono:</label>
+        <input type="tel" id="telefono" formControlName="telefono" placeholder="+34" required>
+
+
+
+        <input type="submit" value="Reservar" (click)="reservar()">
+    </div>
+</form>

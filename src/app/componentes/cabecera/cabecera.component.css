@@ -2,3 +2,7 @@ header{
     border: 1px solid black;
     height: 100px;
 }
+
+nav{
+    display: inline-block;
+}
