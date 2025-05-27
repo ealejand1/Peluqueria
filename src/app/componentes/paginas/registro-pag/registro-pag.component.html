@@ -1,0 +1,36 @@
+<form [formGroup]="registroForm" method="post">
+    <div class="formulario">
+        <h2 class="tituloForm">Registro Usuario</h2>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" formControlName="nombre">
+        @if(nombre.invalid && nombre.touched){
+        <p class="errorForm">El nombre debe de tener minimo 3 caracteres !!!!</p>
+        }
+
+        <label for="correo">Correo Electronico:</label>
+        <input type="email" id="correo" formControlName="correo">
+        @if(correo.hasError("required") && correo.touched){
+        <p class="errorForm">Es obligatorio escribir un correo</p>
+        }
+        @else if (correo.hasError("email")) {
+        <p class="errorForm">No estas escribiendo un correo electronico valido !!!</p>
+        }
+
+        <label for="telefono">Telefono:</label>
+        <input type="tel" id="telefono" formControlName="telefono" placeholder="+34">
+        @if(telefono.hasError("required") && telefono.touched){
+            <p class="errorForm">Es obligatorio poner un numero de telefono</p>
+        }
+        @else if (telefono.hasError("pattern")) {
+            <p class="errorForm">El formato del telefono es incorrecto</p>
+        }
+
+        <label for="passwd">Contraseña:</label>
+        <input type="password" id="passwd" formControlName="passwd">
+        <!-- FALTA CONTEMPLAR LAS VALIDATION DE PASSWD -->
+
+
+        <input type="submit" value="Reservar" (click)="reservar()" [disabled]="registroForm.invalid">
+    </div>
+</form>

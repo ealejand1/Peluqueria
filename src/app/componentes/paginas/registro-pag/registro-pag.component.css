@@ -1,0 +1,22 @@
+.formulario{
+    border: 2px solid #000000;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    padding: 40px;
+}
+
+.tituloForm{
+    text-align: center;
+    font-size: 30px;
+    color: #000000;
+}
+
+.errorForm{
+    color: red;
+    font-size: 14px;
+    text-align: center; 
+
+}
