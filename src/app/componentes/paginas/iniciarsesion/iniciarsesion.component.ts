@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { User } from '../../../clases/user';
 
 @Component({
   selector: 'app-iniciarsesion',
@@ -10,11 +11,23 @@ import {FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class IniciarsesionComponent {
 
+  @Output()
+  mandarUsuario: EventEmitter<User> = new EventEmitter<User>();
+
+  usuario: User;
+
   loginForm: FormGroup;
   email:FormControl;
   password:FormControl;
 
   constructor() {
+
+    this.usuario = {
+      nombre: '',
+      email: '',
+      password: ''
+    }
+ 
     this.email = new FormControl('');
     this.password = new FormControl('');
 
@@ -23,4 +36,15 @@ export class IniciarsesionComponent {
       password: this.password
     });
   }
+
+  onLogin(){
+    this.usuario.nombre = "Erik";
+    this.usuario.email = this.loginForm.value.email;
+    this.usuario.password = this.loginForm.value.password;
+
+    this.mandarUsuario.emit(this.usuario)
+
+    console.log(this.usuario)
+  }
+
 }
