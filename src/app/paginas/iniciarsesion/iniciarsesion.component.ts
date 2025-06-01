@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { User } from '../../../clases/user';
+import { User } from '../../../classes/user';
 
 @Component({
   selector: 'app-iniciarsesion',
@@ -25,6 +25,7 @@ export class IniciarsesionComponent {
     this.usuario = {
       nombre: '',
       email: '',
+      telefono: '',
       password: ''
     }
  

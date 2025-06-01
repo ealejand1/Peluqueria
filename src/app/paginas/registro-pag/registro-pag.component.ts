@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
+import { UsuarioService } from '../../service/usuario/usuario.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class RegistroPagComponent {
   telefono: FormControl;
   passwd: FormControl;
 
-  constructor() {
+  constructor(public usuarioService:UsuarioService) {
     this.nombre = new FormControl('', [Validators.required, Validators.minLength(3)]);
     this.correo = new FormControl('',[Validators.required, Validators.email]);
     this.telefono = new FormControl('',[Validators.required, Validators.pattern('^[6]{1}[0-9]{8}$')]);
@@ -30,8 +31,10 @@ export class RegistroPagComponent {
     });
   }
 
-  reservar(): void {
-    console.log(this.registroForm.value);
+  registerUser(): void {
+    this.usuarioService.addUsuario(this.registroForm.value);
+    console.log(this.usuarioService.getUsuarios());
+    this.registroForm.reset();
   }
 
 }

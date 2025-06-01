@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../../clases/user';
+import { User } from '../../classes/user';
 import { IniciarsesionComponent } from "../paginas/iniciarsesion/iniciarsesion.component";
 
 @Component({
