@@ -5,11 +5,19 @@
 
         <label for="email">Email:</label>
         <input type="email" id="email" formControlName="email">
+        @if(email.touched && email.hasError('required') ){
+            <p class="errorForm">El email es obligatorio</p>
+        }
+        @else if (email.hasError('email')) {
+            <p class="errorForm">El formato del email es incorrecto</p>
+        }
 
         <label for="password">Contraseña:</label>
         <input type="password" id="password" formControlName="password">
 
-        <input type="submit" value="Iniciar Sesion" (click)="onLogin()">
+        <input type="submit" value="Iniciar Sesion" (click)="onLogin()" [disabled]="loginForm.invalid">
+
+        <input type="button" value="Registrarse" (click)="redirectRegister()">
 
     </div>
 </form>

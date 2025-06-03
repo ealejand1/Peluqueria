@@ -1,8 +1,12 @@
-header{
+header {
     border: 1px solid black;
     height: 100px;
 }
 
-nav{
+nav {
     display: inline-block;
+}
+
+a {
+    margin: 5px
 }

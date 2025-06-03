@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../../classes/user';
-import { IniciarsesionComponent } from "../paginas/iniciarsesion/iniciarsesion.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cabecera',
@@ -16,5 +15,16 @@ export class CabeceraComponent {
   // setUsuario(e : User) {
   //   this.usuario = e;
   // }
+
+  constructor(private router:Router) {
+  }
+
+  redirectLogin():void{
+    this.router.navigate(['/login'])
+  }
+
+  redirectHome():void{
+    this.router.navigate([''])
+  }
 
 }

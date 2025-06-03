@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { User } from '../../../classes/user';
+import {FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { User } from '../../classes/user';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-iniciarsesion',
@@ -20,7 +22,7 @@ export class IniciarsesionComponent {
   email:FormControl;
   password:FormControl;
 
-  constructor() {
+  constructor(private router: Router) {
 
     this.usuario = {
       nombre: '',
@@ -29,7 +31,7 @@ export class IniciarsesionComponent {
       password: ''
     }
  
-    this.email = new FormControl('');
+    this.email = new FormControl('',[Validators.required, Validators.email]);
     this.password = new FormControl('');
 
     this.loginForm = new FormGroup({
@@ -46,6 +48,10 @@ export class IniciarsesionComponent {
     this.mandarUsuario.emit(this.usuario)
 
     console.log(this.usuario)
+  }
+
+  redirectRegister(): void {
+    this.router.navigate(['/registro'])
   }
 
 }

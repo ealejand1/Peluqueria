@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
-import { CuerpoComponent } from './componentes/cuerpo/cuerpo.component';
 import { RegistroPagComponent } from './paginas/registro-pag/registro-pag.component';
+import { HomeComponent } from './paginas/home/home.component';
+import { IniciarsesionComponent } from './paginas/iniciarsesion/iniciarsesion.component';
 
 
 export const routes: Routes = [
-    {path:'',component: CuerpoComponent},
-    {path:'registro',component:RegistroPagComponent}
+    {path:'',component: HomeComponent},
+    {path:'registro',component:RegistroPagComponent},
+    {path:'login',component:IniciarsesionComponent}
 ];
