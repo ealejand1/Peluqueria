@@ -6,30 +6,30 @@ import { Event } from '../../classes/event'; // Assuming you have an Event class
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [CalendarioComponent,ReactiveFormsModule],
+  imports: [CalendarioComponent, ReactiveFormsModule],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
 export class AdminComponent {
 
   eventForm: FormGroup;
-  titulo:FormControl;
-  fecha:FormControl;
-  horaInicio:FormControl;
-  horaFin:FormControl;
+  titulo: FormControl;
+  fecha: FormControl;
+  horaInicio: FormControl;
+  horaFin: FormControl;
 
-  nuevoEvento:Event;
+  nuevoEvento: Event;
 
 
-  constructor(){
+  constructor() {
 
     this.titulo = new FormControl('');
     this.fecha = new FormControl('');
     this.horaInicio = new FormControl('');
     this.horaFin = new FormControl('');
 
-    this.nuevoEvento = {titulo: ""};
-   
+    this.nuevoEvento = { titulo: "" };
+
     this.eventForm = new FormGroup({
       titulo: this.titulo,
       fecha: this.fecha,
@@ -39,13 +39,23 @@ export class AdminComponent {
   }
 
 
-  crearEvento():void{
+  crearEvento(): void {
 
+    console.log(this.fecha.value);
+    console.log(this.horaInicio.value);
+
+    let fechaF: string;
+
+    if(this.horaInicio.value !== ""){
+      fechaF = this.fecha.value + " " + this.horaInicio.value;
+    }
+    else{
+      fechaF = this.fecha.value;
+    }
+    
     this.nuevoEvento = {
       titulo: this.titulo.value,
-      fecha: new Date(this.fecha.value),
-      horaInicio: this.horaInicio.value ? new Date(this.horaInicio.value) : undefined, //El operador ternario condición ? valorSiVerdadero : valorSiFalso
-      horaFin: this.horaFin.value ? new Date(this.horaFin.value) : undefined
+      fecha: new Date(fechaF)
     }
 
     console.log(this.nuevoEvento);

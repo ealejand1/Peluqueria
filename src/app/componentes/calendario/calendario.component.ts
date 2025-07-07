@@ -16,7 +16,7 @@ export class CalendarioComponent {
 
   @Input() evento!:Event;
   
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     if (this.evento) {
       console.log('Evento actualizado:', this.evento);
       // Aquí puedes agregar lógica para manejar el evento actualizado

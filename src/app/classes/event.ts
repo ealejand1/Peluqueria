@@ -1,6 +1,6 @@
 export interface Event {
     titulo: string;
     fecha?: Date;
-    horaInicio?: Date;
-    horaFin?: Date;
+    horaInicio?: string;
+    horaFin?: string;
 }
