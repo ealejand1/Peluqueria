@@ -2,10 +2,34 @@
  
  <div><h2>Calendario</h2>
     <button>Elegir/Editar Disponibilidad</button>
+    <button>Añadir Evento</button>
+    <div class="ventanaCrearEvento">
+        <form [formGroup]="eventForm" method="post">
+            <label for="titulo">Título del Evento:</label>
+            <input type="text" id="titulo" formControlName="titulo" required>
+
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" formControlName="fecha" required>
+
+            <label for="horaInicio">Hora Inicio:</label>
+            <input type="time" id="horaInicio" formControlName="horaInicio">
+
+            <label for="horaFin">Hora Fin:</label>
+            <input type="time" id="horaFin" formControlName="horaFin">
+
+            <button type="submit" (click)="crearEvento()">Crear Evento</button>
+        </form>
+
+    </div>
     <!--boton para elegir SOLO dia con hora/ grupo de dias con x hora  -->
 </div>
 <!-- Calendario Disponibilidad de ADNMIN EN AZUL -->
 <!-- Calendario Rojo Elegido por Usuario/Mostrar Usuario reservado -->
 
+@if (nuevoEvento) {
+    <app-calendario [evento]="nuevoEvento"></app-calendario>
+}
+@else {
 <app-calendario/>
+}
  <div><h3>Usuarios</h3></div>
